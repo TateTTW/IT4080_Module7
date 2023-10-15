@@ -8,6 +8,10 @@ public class PowerUpFireRate : BasePowerUp
     protected override bool ApplyToPlayer(Player player)
     {
         player.frontRightCannonBallSpawner.timeBetweenCannonFire = timeBetweenCannonFire;
+        player.frontLeftCannonBallSpawner.timeBetweenCannonFire = timeBetweenCannonFire;
+        player.rearRightCannonBallSpawner.timeBetweenCannonFire = timeBetweenCannonFire;
+        player.rearLeftCannonBallSpawner.timeBetweenCannonFire = timeBetweenCannonFire;
+
         return true;
     }
 }

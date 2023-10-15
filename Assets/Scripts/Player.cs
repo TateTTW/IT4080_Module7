@@ -11,6 +11,9 @@ public class Player : NetworkBehaviour
     public NetworkVariable<Color> playerColorNetVar = new NetworkVariable<Color>(Color.red);
     public NetworkVariable<int> playerScoreNetVar = new NetworkVariable<int>(0);
     public CannonBallSpawner frontRightCannonBallSpawner;
+    public CannonBallSpawner frontLeftCannonBallSpawner;
+    public CannonBallSpawner rearRightCannonBallSpawner;
+    public CannonBallSpawner rearLeftCannonBallSpawner;
 
     private Camera playerCamera;
     private GameObject playerFlag;
@@ -101,7 +104,15 @@ public class Player : NetworkBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
+            frontLeftCannonBallSpawner.FireServerRpc();
+            rearLeftCannonBallSpawner.FireServerRpc();
+
+        }
+
+        if (Input.GetButtonDown("Fire2"))
+        {
             frontRightCannonBallSpawner.FireServerRpc();
+            rearRightCannonBallSpawner.FireServerRpc();
         }
     }
 
